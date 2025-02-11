@@ -70,6 +70,23 @@ export class MyCard extends LitElement {
         text-align: center;
         align-items: center;
       }
+      details summary {
+        text-align: left;
+        font-size: 20px;
+        padding: 8px 0;
+      }
+
+      details[open] summary {
+        font-weight: bold;
+      }
+  
+      details div {
+        border: 2px solid black;
+        text-align: left;
+        padding: 8px;
+        height: 70px;
+        overflow: auto;
+      }
     `;
   }
 
