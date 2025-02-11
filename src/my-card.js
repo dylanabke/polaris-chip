@@ -26,18 +26,22 @@ export class MyCard extends LitElement {
         display: block;
         
       }
-      :host([fancy]) .card {
+      :host([fancy])  {
+        display: block;
         background-color: lightblue;
+        border: 2px solid black;
+        width: 400px;
       }
 
 
       div {
-        background-color: gray;
+        background-color: lightgray;
         border: 2px solid black;
         padding: 10px;
         margin: 10px;
         width: 350px;
         height: 500px;
+        align-items: center;
       }
 
 
@@ -49,30 +53,34 @@ export class MyCard extends LitElement {
         margin:0;
       }
       img {
-        width: 80%;
+        width: 200px;
         height: auto;
-        align: center;
-        padding: 35px;
-      }
-      p {
-        font-size: 1.5em;
-        padding: 10px;
-        margin: 0;
         text-align: center;
+        margin: 20px 75px 20px;
       }
       button {
         background-color: white;
+        border: 2px solid navy;
         color: black;
         font-size: 1.5em;
         padding: 10px;
-        margin: 10px;
-        width: 50%;
-        border: none;
+        margin: 20px 75px 50px;
+        width: 200px;
         border-radius: 5px;
         text-align: center;
-        justify-content: center;
+        align-items: center;
       }
     `;
+  }
+
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
   }
 
   render() {
@@ -83,7 +91,7 @@ export class MyCard extends LitElement {
       <a href=${this.link} target="_blank">
         <button class="btn"><em>Details</em></button>
         </a>
-      <details ?open="${this.fancy}">
+      <details ?open="${this.fancy}" @toggle="${this.openChanged}">
         <summary>Description</summary>
         <div>
           <slot>${this.description}</slot>
