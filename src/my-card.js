@@ -24,10 +24,11 @@ export class MyCard extends LitElement {
     return css`
       :host {
         display: block;
-        
+        display: inline-block;
       }
       :host([fancy])  {
         display: block;
+        display: inline-block;
         background-color: lightblue;
         border: 2px solid black;
         width: 400px;
@@ -35,13 +36,14 @@ export class MyCard extends LitElement {
 
 
       div {
+        display: inline-block;
         background-color: lightgray;
         border: 2px solid black;
         padding: 10px;
         margin: 10px;
         width: 350px;
         height: 500px;
-        align-items: center;
+        vertical-align: middle;
       }
 
 
@@ -53,10 +55,14 @@ export class MyCard extends LitElement {
         margin:0;
       }
       img {
-        width: 200px;
-        height: auto;
-        text-align: center;
-        margin: 20px 75px 20px;
+        display: block;
+        width: auto;
+        height: 175px;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px;
       }
       button {
         background-color: white;
@@ -103,7 +109,7 @@ export class MyCard extends LitElement {
   render() {
     return html`
     <div>
-      <h1>${this.title}</h1>
+      <h1>${this.title.length > 20 ? this.title.substring(0, 10) + "..." : this.title}</h1>
       <img src="${this.image}" alt ="${this.title}"/>
       <a href=${this.link} target="_blank">
         <button class="btn"><em>Details</em></button>
