@@ -1,4 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js";
+
+
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -118,6 +121,7 @@ export class MyCard extends LitElement {
         <summary>Description</summary>
         <div>
           <slot>${this.description}</slot>
+  
         </div>
       </details>
       
